@@ -1,4 +1,4 @@
-export { Counter } from "./counter/Counter"
-export { Footer, Header } from "./layout"
-export { default as AddBugForm } from "./bugs/addBugForm"
-export { default as BugItem } from "./bugs/BugItem"
+export { Secrets } from "./secrets/Secrets";
+export { Header } from "./layout";
+export { default as AddBugForm } from "./bugs/addBugForm";
+export { default as BugItem } from "./bugs/BugItem";

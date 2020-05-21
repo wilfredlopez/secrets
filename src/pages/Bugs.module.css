@@ -19,6 +19,7 @@
 
 .bugsPageContainer {
   display: flex;
+  margin-top: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -48,9 +49,7 @@
 .title {
   font-size: 1.5rem;
 }
-.count {
-  color: blue;
-}
+
 .asyncButton:active:after {
   width: 0%;
   opacity: 1;
@@ -59,4 +58,8 @@
 
 .bugsSection {
   margin-bottom: 1rem;
+}
+
+.section {
+  margin-top: 0.5rem;
 }

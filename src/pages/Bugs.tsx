@@ -1,43 +1,66 @@
-import React from "react"
-import { useBugsState } from "store/store"
-import { addTestBugsAsync } from "store/reducers"
-import { useDispatch } from "react-redux"
-import styles from "./Bugs.module.css"
-import { AddBugForm, BugItem } from "components"
-import classes from "./Bugs.module.css"
+import React, { useState } from "react";
+
+import styles from "./Bugs.module.css";
+import classes from "./Bugs.module.css";
+//@ts-ignore
+import { Cipher } from "@wilfredlopez/react-utils/dist/index.es.js";
 
 interface Props {}
 
-const Bugs = (_props: Props) => {
-  const bugsState = useBugsState()
-  const dispatch = useDispatch()
-  const bugs = bugsState.bugs
-  function addTestBugs() {
-    dispatch(addTestBugsAsync(3))
+const Create = (_props: Props) => {
+  const passRef = React.useRef<HTMLInputElement>(null);
+  const [textToEncode, setTextToEncode] = useState("");
+  const [code, setCode] = useState("");
+
+  function encode() {
+    const password = passRef.current!.value;
+    if (!password || !textToEncode) {
+      passRef.current!.focus();
+      return;
+    }
+    const encoder = Cipher.Encoder(password);
+    const code = encoder(textToEncode);
+    setCode(code);
   }
 
   return (
     <div className={classes.bugsPageContainer}>
-      <h1 className={classes.title}>
-        Total Bugs <span className={classes.count}>{bugs.length}</span>
-      </h1>
       <div>
         <section>
-          <button className={styles.asyncButton} onClick={addTestBugs}>
-            Add Test Bugs Async
-          </button>
+          <label>Password</label>
+          <div>
+            <input type="password" ref={passRef}></input>
+          </div>
         </section>
         <section>
-          <AddBugForm />
+          <label>Secret Message</label>
+          <div>
+            <textarea
+              value={textToEncode}
+              onChange={(e) => setTextToEncode(e.target.value)}
+              rows={8}
+              cols={50}
+            />
+          </div>
         </section>
-        <section className={classes.bugsSection}>
-          {bugs.map((b) => {
-            return <BugItem key={b.id} bug={b} />
-          })}
-        </section>
+        <button className={styles.asyncButton} onClick={encode}>
+          Add <span role="img" aria-label="new">🆕</span>
+        </button>
+        {code &&
+          <section className={styles.section}>
+            <label>HERE IS YOUR CODE</label>
+            <div>
+              <textarea
+                disabled
+                value={code}
+                rows={8}
+                cols={50}
+              />
+            </div>
+          </section>}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Bugs
+export default Create;

@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #120f21;
-  --primary-color-contrast: rgb(236, 236, 236);
+  --primary-color: #1976d2;
+  --primary-color-contrast: #f3f8fa;
 }
 
 body,
@@ -11,9 +11,6 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -32,10 +29,7 @@ code {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: rgb(112, 76, 182);
-}
-a:hover {
-  color: rgb(137, 120, 172);
+  /* color: rgb(112, 76, 182); */
 }
 
 ul {

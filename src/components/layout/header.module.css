@@ -12,12 +12,14 @@
 
 .headerContainer h1 {
   font-size: 1rem;
+  font-family: "roboto";
 }
 
 .nav {
   display: flex;
-  flex: 1;
-  margin: 0 1rem;
+  /* flex: 1; */
+  margin-left: auto;
+  /* margin: 0 1rem; */
 }
 
 .navLink {
@@ -25,14 +27,14 @@
   margin-left: 1rem;
 }
 
-.navLink a {
+/* .navLink a {
   color: var(--primary-color-contrast);
   text-transform: uppercase;
   font-weight: bold;
 }
 .navLink a:hover {
   color: white;
-}
+} */
 
 @media (min-width: 750px) {
   .headerContainer h1 {

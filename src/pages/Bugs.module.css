@@ -3,23 +3,29 @@
   background: none;
   font-size: 1rem;
   padding: 8px;
-  outline: none;
   border-radius: 5px;
+  transition: all 0.15s;
   border: 2px solid transparent;
+  outline: none;
   color: rgb(255, 255, 255);
   cursor: pointer;
-  background-color: rgba(9, 58, 133, 1);
-  border-radius: 2px;
-  transition: all 0.15s;
+  background-color: var(--primary-color);
+}
+
+.button.secondary {
+  background-color: rgb(123, 134, 155);
+  font-size: 12px;
+}
+.button.secondary:hover {
+  background-color: rgba(123, 134, 155, 0.9);
 }
 
 .button:hover {
-  background-color: rgba(9, 58, 133, 0.8);
+  background-color: rgba(64, 131, 194, 0.9);
 }
 
 .bugsPageContainer {
   display: flex;
-  margin-top: 1rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -29,8 +35,8 @@
 .asyncButton {
   composes: button;
   position: relative;
-  margin-left: 2px;
-  background-color: rgba(0, 37, 92, 0.7);
+  margin-right: 10px;
+  background-color: var(--primary-color);
 }
 
 .asyncButton:after {
@@ -62,4 +68,18 @@
 
 .section {
   margin-top: 0.5rem;
+}
+
+.share {
+  font-weight: 600;
+  margin-right: 10px;
+  font-size: 1rem;
+  padding: 8px;
+  border-radius: 5px;
+  transition: all 0.15s;
+  border: 2px solid rgba(35, 31, 65, 0.2);
+}
+
+.share:hover {
+  color: rgb(35, 31, 65);
 }

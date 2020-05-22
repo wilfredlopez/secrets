@@ -7,21 +7,33 @@ import // decrement,
 // selectCount,
 "store/reducers"
 import styles from "./Secrets.module.css"
-import { Input } from "../styled/index"
+import { Input, Label, TextArea, Button } from "../styled/index"
 //@ts-ignore
-import { Cipher } from "@wilfredlopez/react-utils/dist/index.es.js"
+// import { Cipher } from "@wilfredlopez/react-utils/dist/index.es.js"
+import { Cipher } from "@wilfredlopez/react-utils/dist"
 
 export function Secrets() {
   // const count = useSelector(selectCount);
-  const [password, setPassword] = useState("")
+  const passwordRef = React.useRef<HTMLInputElement>(null)
+  const codeRef = React.useRef<HTMLTextAreaElement>(null)
   const [output, setOutput] = useState("")
   const [code, setCode] = useState("")
   // const dispatch = useDispatch();
   // const [incrementAmount, setIncrementAmount] = useState("2");
   //onClick={() => dispatch(decrement())}
   function decode() {
+    setOutput("")
+    const password = passwordRef.current!.value
+    if (!password) {
+      passwordRef.current!.focus()
+      return
+    }
+    if (!code) {
+      codeRef.current!.focus()
+      return
+    }
     if (password && code) {
-      const decoder = Cipher.Decoder(password)
+      const decoder = Cipher.GenerateDecoder(password)
       try {
         const out = decoder<string>(code)
         console.log(out)
@@ -29,45 +41,40 @@ export function Secrets() {
       } catch (error) {
         setOutput("Upps. looks like the password is incorrect.")
       }
+    } else {
+      passwordRef.current!.focus()
     }
   }
 
   return (
     <div>
       <div className={styles.col}>
-        <label>Enter The Passcode</label>
+        <Label>Passcode:</Label>
         <div className={styles.row}>
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <Input placeholder="Passcode" type="password" ref={passwordRef} />
         </div>
-        <label>Enter The Code</label>
+        <Label>What's the Secret Code?</Label>
         <div className={styles.row}>
-          <textarea
+          <TextArea
+            placeholder="Enter the secret code that was given to you."
+            ref={codeRef}
             value={code}
-            rows={8}
-            cols={50}
+            rows={2}
+            cols={25}
             onChange={(e) => setCode(e.target.value)}
           />
         </div>
 
-        <button
-          className={styles.asyncButton}
-          aria-label="Increment value"
-          onClick={decode}
-        >
+        <Button aria-label="Reviel secret" onClick={decode}>
           Reveal
-        </button>
+        </Button>
       </div>
       <div className={styles.output}>
         {output && (
           <>
-            <h4>The secret is</h4>
             <div>
               <section>
-                <textarea value={output} rows={8} cols={50} disabled />
+                <TextArea value={output} cols={50} disabled />
               </section>
             </div>
           </>

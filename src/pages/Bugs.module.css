@@ -83,3 +83,8 @@
 .share:hover {
   color: rgb(35, 31, 65);
 }
+
+.flashText {
+  color: green;
+  font-weight: bold;
+}

@@ -1850,10 +1850,10 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
-"@wilfredlopez/react-utils@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@wilfredlopez/react-utils/-/react-utils-0.0.8.tgz#d3f626d41f95c1d524ddeb18312e3a550a4dd43a"
-  integrity sha512-hEgcDHjSkMqg5oPY8ClgUA5A9E6JNpUcQbuAar16qR1pOXCyBoB990guOsKSXXCt+IZ4UFFWMmw5KW9qAiO9qA==
+"@wilfredlopez/react-utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@wilfredlopez/react-utils/-/react-utils-1.0.0.tgz#43f25bd001427ae1072f1a9e0376d618cae0b746"
+  integrity sha512-pDlEw+LyiZrAWUvN7j4QgDEP2xtI/goasEUiFQ0L1il2hkETdGqSBTaBKod/4lOkMjXr9z/KM2TKdDIcCCNw9g==
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"

@@ -1,6 +1,6 @@
-import styled, { css, keyframes } from "styled-components"
-import { NavLink } from "react-router-dom"
-import React, { ButtonHTMLAttributes } from "react"
+import styled, { css, keyframes } from "styled-components";
+import { NavLink } from "react-router-dom";
+import React, { ButtonHTMLAttributes } from "react";
 const pulse = keyframes`
   0% {
     opacity: 0;
@@ -8,22 +8,22 @@ const pulse = keyframes`
   100% {
     opacity: 1;
   }
-`
+`;
 
 interface TitleProps {
-  color?: "primary" | "secondary"
+  color?: "primary" | "secondary";
 }
 
 export const Title = styled.h1<TitleProps>`
   color: ${(props) =>
-    props.color === "primary"
-      ? props.theme.colors.primary
-      : props.theme.colors.secondary};
+  props.color === "primary"
+    ? props.theme.colors.primary
+    : props.theme.colors.secondary};
   ${css`
     font-size: 27px;
     font-family: "roboto";
   `}
-`
+`;
 
 export const Label = styled.label`
   color: ${(props) => props.theme.colors.primary};
@@ -35,21 +35,22 @@ export const Label = styled.label`
   padding: 0;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const RevielText = styled.p`
   color: green;
   margin-bottom: 0;
   font-weight: 500;
   animation: ${pulse} 2s;
-`
+`;
 interface InputProps {
-  readonly isActive?: boolean
+  readonly isActive?: boolean;
 }
 export const Input = styled.input<InputProps>`
   color: ${(props) => props.theme.colors.secondary};
   padding: 0.5em;
   margin: 0.5em;
+  min-width:250px;
   background: papayawhip;
   border: none;
   border-radius: 3px;
@@ -59,7 +60,7 @@ export const Input = styled.input<InputProps>`
   :focus {
     border-bottom: 2px solid #ff00007a;
   }
-`
+`;
 
 interface FlexDivProps {
   justify?:
@@ -68,21 +69,21 @@ interface FlexDivProps {
     | "space-between"
     | "flex-end"
     | "flex-start"
-    | "center"
+    | "center";
 }
 
 export const FlexDiv = styled.div<FlexDivProps>`
   display: flex;
   align-items: center;
   ${(props) =>
-    props.justify
-      ? css`
+  props.justify
+    ? css`
           justify-content: ${props.justify};
         `
-      : css`
+    : css`
           justify-content: space-around;
         `}
-`
+`;
 
 export const CopyButton = styled.button`
   background: #6b7585;
@@ -96,7 +97,7 @@ export const CopyButton = styled.button`
   &:hover {
     background: #8a929e;
   }
-`
+`;
 
 export const TextArea = styled.textarea`
   background: papayawhip;
@@ -110,7 +111,7 @@ export const TextArea = styled.textarea`
     background: black;
     color: white;
   }
-`
+`;
 
 export const StyledLink = styled(NavLink)`
   display: flex;
@@ -143,7 +144,7 @@ export const StyledLink = styled(NavLink)`
   -webkit-appearance: none;
   /* text-transform: uppercase; */
   &.active {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     /* background: rgba(162, 163, 168, 0.4); */
     background: ${(props) => props.theme.colors.tertiary};
   }
@@ -151,19 +152,19 @@ export const StyledLink = styled(NavLink)`
     /* background: rgba(210, 211, 220, 0.4); */
     background: ${(props) => props.theme.colors.tertiaryTint};
   }
-`
+`;
 
 export const ButtonInner = styled.div`
   width: 100%;
   display: inherit;
   align-items: inherit;
   justify-content: inherit;
-`
+`;
 
-type ColorProps = "primary" | "secondary" | "tertiary"
+type ColorProps = "primary" | "secondary" | "tertiary";
 
 interface ButtonWrapperProps {
-  color?: ColorProps
+  color?: ColorProps;
 }
 
 const ButtonWrapper = styled.button<ButtonWrapperProps>`
@@ -171,17 +172,17 @@ const ButtonWrapper = styled.button<ButtonWrapperProps>`
   margin: 8px;
   padding: 6px 16px;
   background-color: ${(props) =>
-    props.color ? props.theme.colors[props.color] : props.theme.colors.primary};
+  props.color ? props.theme.colors[props.color] : props.theme.colors.primary};
   -webkit-tap-highlight-color: transparent;
 
   color: ${(props) =>
-    props.color
-      ? props.color === "secondary"
-        ? props.theme.colors.secondaryContrast
-        : props.color === "primary"
-        ? props.theme.colors.primaryContrast
-        : props.theme.colors.tertiaryContrast
-      : props.theme.colors.primaryContrast};
+  props.color
+    ? props.color === "secondary"
+      ? props.theme.colors.secondaryContrast
+      : props.color === "primary"
+      ? props.theme.colors.primaryContrast
+      : props.theme.colors.tertiaryContrast
+    : props.theme.colors.primaryContrast};
   font-size: 0.875rem;
   min-width: 64px;
   box-sizing: border-box;
@@ -208,17 +209,17 @@ const ButtonWrapper = styled.button<ButtonWrapperProps>`
   -webkit-appearance: none;
   &:hover {
     background-color: ${(props) =>
-      props.color
-        ? props.color === "primary"
-          ? props.theme.colors.primaryTint
-          : props.color === "secondary"
-          ? props.theme.colors.secondaryTint
-          : props.theme.colors.tertiaryTint
-        : props.theme.colors.primaryTint};
+  props.color
+    ? props.color === "primary"
+      ? props.theme.colors.primaryTint
+      : props.color === "secondary"
+      ? props.theme.colors.secondaryTint
+      : props.theme.colors.tertiaryTint
+    : props.theme.colors.primaryTint};
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
       0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   }
-`
+`;
 
 const ButtonSpan = styled.span`
   top: 0;
@@ -230,10 +231,10 @@ const ButtonSpan = styled.span`
   position: absolute;
   border-radius: inherit;
   pointer-events: none;
-`
+`;
 
 interface ButtonProps extends ButtonHTMLAttributes<{}> {
-  color?: ColorProps
+  color?: ColorProps;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -246,5 +247,5 @@ export const Button: React.FC<ButtonProps> = ({
       <ButtonInner>{children}</ButtonInner>
       <ButtonSpan />
     </ButtonWrapper>
-  )
-}
+  );
+};

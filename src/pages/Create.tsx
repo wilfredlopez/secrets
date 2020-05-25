@@ -94,7 +94,7 @@ const Create = (_props: Props) => {
             </div>
             <FlexDiv justify="flex-end">
               <a
-                href={`mailto:example@example.com?subject=secret&body=${FRONT_END_URL}/reveal/${code}`}
+                href={`mailto:example@example.com?subject=secret&body=${FRONT_END_URL}/code?${code}`}
                 className={classes.share}
               >
                 Send Via Email
@@ -114,8 +114,8 @@ const Create = (_props: Props) => {
         <div>
           <p>You can also share this link to reveal it:</p>
           <FlexDiv>
-            <a href={`${FRONT_END_URL}/reveal/${code}`}>
-              {FRONT_END_URL}/reveal/{code}
+            <a href={`${FRONT_END_URL}/code?${code}`}>
+              {FRONT_END_URL}/code?{code}
             </a>
           </FlexDiv>
         </div>

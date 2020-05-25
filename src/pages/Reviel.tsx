@@ -11,7 +11,7 @@ const Reviel = (props: Props) => {
       <Title>Reviel The Secret</Title>
       <Secrets />
       <div>
-        <Link to="/reveal/CODEEEEE">TEST LINK</Link>
+        <Link to="/code?code">TEST LINK</Link>
       </div>
     </div>
   )

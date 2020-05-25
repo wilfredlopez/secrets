@@ -1,14 +1,23 @@
 import React from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory, withRouter } from "react-router-dom"
 import { Label, Input } from "components/styled"
 import { Cipher } from "@wilfredlopez/react-utils/dist"
 import classes from "./RevielLink.module.css"
 interface Props {}
 
 const RevielLink = (props: Props) => {
-  const { code } = useParams<{ code: string }>()
+  const history = useHistory()
+  const [code, setCode] = React.useState("")
+  // const { code } = useParams<{ code: string }>()
+  const params = useParams<{ code: string }>()
   const [decoded, setDecoded] = React.useState(code)
   const [password, setPassword] = React.useState("")
+
+  React.useLayoutEffect(() => {
+    console.log(params)
+    console.log(history)
+  })
+
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const value = event.target.value
     setPassword(value)
@@ -35,7 +44,8 @@ const RevielLink = (props: Props) => {
       <div>
         <Label style={{ fontWeight: "bold" }}>Secret</Label>
       </div>
-      <pre className={classes.pre}>
+      CODE HERE
+      {/* <pre className={classes.pre}>
         <code className={classes.code}>
           <div
             dangerouslySetInnerHTML={{
@@ -43,7 +53,7 @@ const RevielLink = (props: Props) => {
             }}
           ></div>
         </code>
-      </pre>
+      </pre> */}
       <Label>
         The text will be accurate as long as you enter the correct password.
       </Label>
@@ -51,4 +61,4 @@ const RevielLink = (props: Props) => {
   )
 }
 
-export default RevielLink
+export default withRouter(RevielLink)

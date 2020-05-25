@@ -1,4 +1,4 @@
-import { Cipher } from "@wilfredlopez/react-utils/dist";
+import { Cipher } from "@wilfredlopez/react-utils/dist"
 import {
   Button,
   FlexDiv,
@@ -7,49 +7,49 @@ import {
   RevielText,
   TextArea,
   Title,
-} from "components/styled";
-import { FRONT_END_URL } from "config";
-import React, { useState } from "react";
-import { default as classes, default as styles } from "./Bugs.module.css";
+} from "components/styled"
+import { FRONT_END_URL } from "config"
+import React, { useState } from "react"
+import { default as classes, default as styles } from "./Bugs.module.css"
 
 interface Props {}
 
 const Create = (_props: Props) => {
-  const passRef = React.useRef<HTMLInputElement>(null);
-  const [textToEncode, setTextToEncode] = useState("");
-  const [code, setCode] = useState("");
-  const textAreaRef = React.useRef<HTMLTextAreaElement>(null);
-  const [flashMessage, setFlashMessage] = React.useState("");
+  const passRef = React.useRef<HTMLInputElement>(null)
+  const [textToEncode, setTextToEncode] = useState("")
+  const [code, setCode] = useState("")
+  const textAreaRef = React.useRef<HTMLTextAreaElement>(null)
+  const [flashMessage, setFlashMessage] = React.useState("")
   function encode() {
-    setCode("");
-    const password = passRef.current!.value;
+    setCode("")
+    const password = passRef.current!.value
     if (!password || !textToEncode) {
-      passRef.current!.focus();
-      return;
+      passRef.current!.focus()
+      return
     }
-    const encoder = Cipher.GenerateEncoder(password);
-    const code = encoder(textToEncode);
-    setCode(code);
+    const encoder = Cipher.GenerateEncoder(password)
+    const code = encoder(textToEncode)
+    setCode(code)
   }
 
   function copyClipBoard() {
     if (textAreaRef.current) {
-      console.log("MAKING COPY");
-      const el = textAreaRef.current;
-      el.disabled = false;
-      el.select();
-      document.execCommand("copy");
-      el.disabled = true;
-      setFlashMessage("The code has been copied to clipboard.");
+      console.log("MAKING COPY")
+      const el = textAreaRef.current
+      el.disabled = false
+      el.select()
+      document.execCommand("copy")
+      el.disabled = true
+      setFlashMessage("The code has been copied to clipboard.")
       setTimeout(() => {
-        setFlashMessage("");
-      }, 2000);
+        setFlashMessage("")
+      }, 2000)
     }
   }
 
   function resetAll() {
-    setTextToEncode("");
-    passRef.current!.value = "";
+    setTextToEncode("")
+    passRef.current!.value = ""
   }
 
   return (
@@ -63,8 +63,7 @@ const Create = (_props: Props) => {
               placeholder="Your secret password"
               type="password"
               ref={passRef}
-            >
-            </Input>
+            ></Input>
           </div>
         </section>
         <section>
@@ -83,10 +82,7 @@ const Create = (_props: Props) => {
           <Button className={styles.asyncButton} onClick={encode}>
             Generate
           </Button>
-          <Button
-            onClick={resetAll}
-            color="tertiary"
-          >
+          <Button onClick={resetAll} color="tertiary">
             Reset
           </Button>
         </FlexDiv>
@@ -94,12 +90,7 @@ const Create = (_props: Props) => {
           <section className={styles.section}>
             <RevielText>Share this code safely</RevielText>
             <div onClick={copyClipBoard}>
-              <TextArea
-                ref={textAreaRef}
-                disabled
-                value={code}
-                cols={50}
-              />
+              <TextArea ref={textAreaRef} disabled value={code} cols={50} />
             </div>
             <FlexDiv justify="flex-end">
               <a
@@ -119,7 +110,7 @@ const Create = (_props: Props) => {
           </section>
         )}
       </div>
-      {code &&
+      {code && (
         <div>
           <p>You can also share this link to reveal it:</p>
           <FlexDiv>
@@ -127,12 +118,13 @@ const Create = (_props: Props) => {
               {FRONT_END_URL}/reveal/{code}
             </a>
           </FlexDiv>
-        </div>}
+        </div>
+      )}
       <FlexDiv>
         <p className={classes.flashText}>{flashMessage}</p>
       </FlexDiv>
     </div>
-  );
-};
+  )
+}
 
-export default Create;
+export default Create

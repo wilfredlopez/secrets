@@ -9,12 +9,12 @@ const RevielLink = (props: Props) => {
   const history = useHistory()
   const [code, setCode] = React.useState("")
   // const { code } = useParams<{ code: string }>()
-  const params = useParams<{ code: string }>()
+  // const params = useParams<{ code: string }>()
   const [decoded, setDecoded] = React.useState(code)
   const [password, setPassword] = React.useState("")
 
   React.useLayoutEffect(() => {
-    console.log(params)
+    // console.log(params)
     console.log(history)
   })
 

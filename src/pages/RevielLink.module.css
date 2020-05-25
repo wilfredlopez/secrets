@@ -1,0 +1,14 @@
+.pre {
+  padding: 1rem;
+  display: block;
+  border: 1px solid #cdcdcd;
+  max-width: 320px;
+  width: fit-content;
+  margin: auto;
+  /* background-color: #fdf9f3; */
+}
+
+.code {
+  overflow-wrap: break-word;
+  white-space: break-spaces;
+}

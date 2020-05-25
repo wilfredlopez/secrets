@@ -1,17 +1,16 @@
-import React, { useState } from "react";
-
-import styles from "./Bugs.module.css";
-import classes from "./Bugs.module.css";
 import { Cipher } from "@wilfredlopez/react-utils/dist";
 import {
-  Label,
-  Input,
-  TextArea,
-  RevielText,
-  Title,
-  FlexDiv,
   Button,
+  FlexDiv,
+  Input,
+  Label,
+  RevielText,
+  TextArea,
+  Title,
 } from "components/styled";
+import { FRONT_END_URL } from "config";
+import React, { useState } from "react";
+import { default as classes, default as styles } from "./Bugs.module.css";
 
 interface Props {}
 
@@ -104,7 +103,7 @@ const Create = (_props: Props) => {
             </div>
             <FlexDiv justify="flex-end">
               <a
-                href={`mailto:example@example.com?subject=secret&body=${code}`}
+                href={`mailto:example@example.com?subject=secret&body=${FRONT_END_URL}/reveal/${code}`}
                 className={classes.share}
               >
                 Send Via Email
@@ -120,6 +119,15 @@ const Create = (_props: Props) => {
           </section>
         )}
       </div>
+      {code &&
+        <div>
+          <p>You can also share this link to reveal it:</p>
+          <FlexDiv>
+            <a href={`${FRONT_END_URL}/reveal/${code}`}>
+              {FRONT_END_URL}/reveal/{code}
+            </a>
+          </FlexDiv>
+        </div>}
       <FlexDiv>
         <p className={classes.flashText}>{flashMessage}</p>
       </FlexDiv>

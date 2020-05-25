@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom"
 import { GlobalStyles } from "./styles/theme"
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename=".">
       <GlobalStyles />
       {/* <Provider store={store}> */}
       <App />

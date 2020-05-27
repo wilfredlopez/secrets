@@ -30,8 +30,24 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: auto;
+  /* max-width: 90%; */
+  position: relative;
 }
 
+.inputContainer {
+  /* max-width: 90%; */
+  margin: auto;
+}
+
+.textArea {
+  max-width: 90%;
+  margin: auto;
+}
+.input {
+  width: 100%;
+  max-width: 90%;
+}
 .asyncButton {
   composes: button;
   position: relative;

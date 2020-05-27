@@ -51,7 +51,12 @@ export function Secrets() {
       <div className={styles.col}>
         <Label>Passcode:</Label>
         <div className={styles.row}>
-          <Input placeholder="Passcode" type="password" ref={passwordRef} />
+          <Input
+            className={styles.input}
+            placeholder="Passcode"
+            type="password"
+            ref={passwordRef}
+          />
         </div>
         <Label>What's the Secret Code?</Label>
         <div className={styles.row}>

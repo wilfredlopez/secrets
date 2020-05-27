@@ -1,5 +1,5 @@
 // my-theme.ts
-import { DefaultTheme, createGlobalStyle } from "styled-components"
+import { DefaultTheme, createGlobalStyle } from "styled-components";
 
 const theme: DefaultTheme = {
   borderRadius: "5px",
@@ -14,11 +14,11 @@ const theme: DefaultTheme = {
     tertiaryTint: "#be5b17",
     tertiaryContrast: "#e0e0e0",
   },
-}
+};
 
 export const GlobalStyles = createGlobalStyle`
 font-family: 'Encode Sans Condensed', 'Libre Barcode 128 Text', cursive, sans-serif;
 box-sizing: border-box;
-`
+`;
 
-export { theme }
+export { theme };

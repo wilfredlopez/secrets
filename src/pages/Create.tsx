@@ -1,4 +1,4 @@
-import { Cipher } from "@wilfredlopez/react-utils/dist"
+import { Cipher } from "@wilfredlopez/react-utils";
 import {
   Button,
   FlexDiv,
@@ -7,49 +7,49 @@ import {
   RevielText,
   TextArea,
   Title,
-} from "components/styled"
-import { FRONT_END_URL } from "config"
-import React, { useState } from "react"
-import { default as classes, default as styles } from "./Bugs.module.css"
+} from "components/styled";
+import { FRONT_END_URL } from "config";
+import React, { useState } from "react";
+import { default as classes, default as styles } from "./Bugs.module.css";
 
 interface Props {}
 
 const Create = (_props: Props) => {
-  const passRef = React.useRef<HTMLInputElement>(null)
-  const [textToEncode, setTextToEncode] = useState("")
-  const [code, setCode] = useState("")
-  const textAreaRef = React.useRef<HTMLTextAreaElement>(null)
-  const [flashMessage, setFlashMessage] = React.useState("")
+  const passRef = React.useRef<HTMLInputElement>(null);
+  const [textToEncode, setTextToEncode] = useState("");
+  const [code, setCode] = useState("");
+  const textAreaRef = React.useRef<HTMLTextAreaElement>(null);
+  const [flashMessage, setFlashMessage] = React.useState("");
   function encode() {
-    setCode("")
-    const password = passRef.current!.value
+    setCode("");
+    const password = passRef.current!.value;
     if (!password || !textToEncode) {
-      passRef.current!.focus()
-      return
+      passRef.current!.focus();
+      return;
     }
-    const encoder = Cipher.GenerateEncoder(password)
-    const code = encoder(textToEncode)
-    setCode(code)
+    const encoder = Cipher.GenerateEncoder(password);
+    const code = encoder(textToEncode);
+    setCode(code);
   }
 
   function copyClipBoard() {
     if (textAreaRef.current) {
-      console.log("MAKING COPY")
-      const el = textAreaRef.current
-      el.disabled = false
-      el.select()
-      document.execCommand("copy")
-      el.disabled = true
-      setFlashMessage("The code has been copied to clipboard.")
+      console.log("MAKING COPY");
+      const el = textAreaRef.current;
+      el.disabled = false;
+      el.select();
+      document.execCommand("copy");
+      el.disabled = true;
+      setFlashMessage("The code has been copied to clipboard.");
       setTimeout(() => {
-        setFlashMessage("")
-      }, 2000)
+        setFlashMessage("");
+      }, 2000);
     }
   }
 
   function resetAll() {
-    setTextToEncode("")
-    passRef.current!.value = ""
+    setTextToEncode("");
+    passRef.current!.value = "";
   }
 
   return (
@@ -58,12 +58,14 @@ const Create = (_props: Props) => {
       <div>
         <section>
           <Label>Password</Label>
-          <div>
+          <div className={classes.inputContainer}>
             <Input
               placeholder="Your secret password"
               type="password"
               ref={passRef}
-            ></Input>
+              className={classes.input}
+            >
+            </Input>
           </div>
         </section>
         <section>
@@ -75,6 +77,7 @@ const Create = (_props: Props) => {
               onChange={(e) => setTextToEncode(e.target.value)}
               // rows={8}
               cols={50}
+              className={classes.textArea}
             />
           </div>
         </section>
@@ -124,7 +127,7 @@ const Create = (_props: Props) => {
         <p className={classes.flashText}>{flashMessage}</p>
       </FlexDiv>
     </div>
-  )
-}
+  );
+};
 
-export default Create
+export default Create;

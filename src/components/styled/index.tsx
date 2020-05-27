@@ -114,22 +114,18 @@ export const TextArea = styled.textarea`
 `;
 
 export const StyledLink = styled(NavLink)`
-  display: flex;
   font-family: 'roboto';
   width: 100%;
   align-items: center;
-  /* padding: 5px 10px; */
   padding: 10px 15px;
   font-size: 0.875rem;
   min-width: 64px;
   box-sizing: border-box;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  /* border: 1px solid rgba(222, 211, 211, 0.55); */
   border-radius: 0.3rem;
   color: ${(props) => props.theme.colors.tertiaryContrast};
-  /* background: ${(props) => props.theme.colors.tertiary}; */
-  background: rgba(162, 163, 168, 0.4);
+  /* background: rgba(162, 163, 168, 0.4); */
   font-weight: bold;
   line-height: 1;
   letter-spacing: 0.02857em;
@@ -142,15 +138,21 @@ export const StyledLink = styled(NavLink)`
   justify-content: center;
   text-decoration: none;
   -webkit-appearance: none;
-  /* text-transform: uppercase; */
   &.active {
-    /* text-decoration: underline; */
-    /* background: rgba(162, 163, 168, 0.4); */
-    background: ${(props) => props.theme.colors.tertiary};
+    /* background: ${(props) => props.theme.colors.tertiary}; */
+  }
+  &.active::after{
+    content: "";
+    width: 70%;
+    height: 2px;
+    position: absolute;
+    background: ${(props) => props.theme.colors.tertiaryContrast};
+    color: ${(props) => props.theme.colors.tertiaryContrast};
+    bottom: 5px;
   }
   &:hover {
-    /* background: rgba(210, 211, 220, 0.4); */
-    background: ${(props) => props.theme.colors.tertiaryTint};
+    /* background: ${(props) => props.theme.colors.tertiaryTint}; */
+    color: ${(props) => props.theme.colors.secondaryContrast};
   }
 `;
 
